@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f7fb">
+  <title>CarePoint | Hospital Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-photo" role="img" aria-label="Modern hospital care team"></div>
+    <div class="login-panel">
+      <a class="brand login-brand" href="#" aria-label="CarePoint home"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span><span>care<span>point</span></span></a>
+      <div class="login-content">
+        <span class="eyebrow">HOSPITAL ADMINISTRATION</span>
+        <h1>Better care starts<br>with better coordination.</h1>
+        <p>Sign in to manage your hospital operations, patients, and care team.</p>
+        <form id="loginForm" class="login-form">
+          <label>Email address<input name="email" type="email" autocomplete="username" value="admin@carepoint.demo" required></label>
+          <label>Password<div class="password-field"><input id="loginPassword" name="password" type="password" autocomplete="current-password" value="CarePoint123!" required><button type="button" class="icon-button" id="togglePassword" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></label>
+          <p id="loginError" class="form-error" aria-live="polite"></p>
+          <button class="button button-primary button-wide" type="submit">Sign in <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+        <div class="demo-hint"><i class="fa-solid fa-circle-info"></i><span>Demo account: <strong>admin@carepoint.demo</strong><br>Password: <strong>CarePoint123!</strong></span></div>
+        <small class="login-note">Demonstration only — this sign-in is client-side, not production authentication.</small>
+      </div>
+      <div class="login-footer">© 2026 CarePoint Health · Demo environment</div>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell is-hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a class="brand" href="#" data-page-link="dashboard"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span><span>care<span>point</span></span></a>
+        <button id="closeSidebar" class="icon-button sidebar-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></button>
+        <button class="nav-link" data-page="patients"><i class="fa-solid fa-hospital-user"></i><span>Patients</span><span class="nav-count" id="patientNavCount">0</span></button>
+        <button class="nav-link" data-page="doctors"><i class="fa-solid fa-user-doctor"></i><span>Doctors</span></button>
+        <button class="nav-link" data-page="appointments"><i class="fa-regular fa-calendar-check"></i><span>Appointments</span></button>
+        <button class="nav-link" data-page="departments"><i class="fa-solid fa-layer-group"></i><span>Departments</span></button>
+        <button class="nav-link" data-page="beds"><i class="fa-solid fa-bed-pulse"></i><span>Beds & Rooms</span></button>
+        <button class="nav-link" data-page="billing"><i class="fa-regular fa-credit-card"></i><span>Billing</span></button>
+        <button class="nav-link" data-page="reports"><i class="fa-solid fa-chart-column"></i><span>Reports</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link" data-page="settings"><i class="fa-solid fa-sliders"></i><span>Settings</span></button>
+        <div class="sidebar-help"><div class="help-icon"><i class="fa-regular fa-life-ring"></i></div><strong>Need a hand?</strong><p>Explore the demo with confidence.</p><button id="helpButton">View demo guide <i class="fa-solid fa-arrow-right"></i></button></div>
+        <div class="sidebar-version">CAREPOINT ADMIN <span>v1.0 · DEMO</span></div>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><button class="icon-button menu-button" id="menuButton" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button><div class="breadcrumb"><span>Workspace</span><i class="fa-solid fa-chevron-right"></i><strong id="currentPageLabel">Dashboard</strong></div></div>
+        <div class="topbar-right">
+          <div class="global-search"><i class="fa-solid fa-magnifying-glass"></i><input id="globalSearch" type="search" placeholder="Search this page..." aria-label="Search current page"><kbd>⌘ K</kbd></div>
+          <div class="top-date"><i class="fa-regular fa-calendar"></i><span id="currentDate"></span></div>
+          <div class="dropdown-wrap"><button class="icon-button notification-button" id="notificationButton" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="notification-dot"></span></button><div class="dropdown notification-menu" id="notificationMenu"><strong>Notifications</strong><div id="notificationItems"></div></div></div>
+          <div class="dropdown-wrap"><button class="profile-button" id="profileButton"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=100&q=80" alt="Profile"><span><strong id="profileName">Olivia Bennett</strong><small>Administrator</small></span><i class="fa-solid fa-chevron-down"></i></button><div class="dropdown profile-menu" id="profileMenu"><button data-page="settings"><i class="fa-regular fa-user"></i> My profile</button><button id="profileDarkMode"><i class="fa-regular fa-moon"></i> Toggle dark mode</button><button id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out</button></div></div>
+        </div>
+      </header>
+      <div id="pageContent" class="page-content"></div>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
